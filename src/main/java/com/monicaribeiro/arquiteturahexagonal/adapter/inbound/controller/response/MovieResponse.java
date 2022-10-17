@@ -6,20 +6,18 @@ public class MovieResponse {
     private String imdbID;
     private String title;
     private String poster;
-    private String test;
 
     public MovieResponse() {
     }
 
-    public MovieResponse(String imdbID, String title, String poster, String test) {
+    public MovieResponse(String imdbID, String title, String poster) {
         this.imdbID = imdbID;
         this.title = title;
         this.poster = poster;
-        this.test = test;
     }
 
     public static MovieResponse fromDomain(Movie movie) {
-        return new MovieResponse(movie.getImdbID(), movie.getTitle(), movie.getPoster(), "Test");
+        return new MovieResponse(movie.getImdbID(), movie.getTitle(), movie.getPoster());
     }
 
     public String getImdbID() {
@@ -46,11 +44,4 @@ public class MovieResponse {
         this.poster = poster;
     }
 
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
-    }
 }
