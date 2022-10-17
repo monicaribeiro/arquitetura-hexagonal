@@ -1,10 +1,9 @@
 package com.monicaribeiro.arquiteturahexagonal.adapter.outbound.repository;
 
+import com.monicaribeiro.arquiteturahexagonal.config.exception.UserNotFoundException;
 import com.monicaribeiro.arquiteturahexagonal.domain.domain.User;
 import com.monicaribeiro.arquiteturahexagonal.domain.ports.outbound.GetUserByIdAdapterPort;
 import org.springframework.stereotype.Component;
-
-import java.util.NoSuchElementException;
 
 @Component
 public class GetUserByIdAdapter implements GetUserByIdAdapterPort {
@@ -22,7 +21,7 @@ public class GetUserByIdAdapter implements GetUserByIdAdapterPort {
             return User.fromEntity(userResult.get());
 
         } catch (Exception exception) {
-            throw new NoSuchElementException("Usuário não encontrado com o id: " + id.toString());
+            throw new UserNotFoundException(id);
         }
     }
 }

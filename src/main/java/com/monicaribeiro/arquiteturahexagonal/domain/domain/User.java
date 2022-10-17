@@ -2,8 +2,6 @@ package com.monicaribeiro.arquiteturahexagonal.domain.domain;
 
 import com.monicaribeiro.arquiteturahexagonal.adapter.outbound.repository.UserEntity;
 
-import java.util.Optional;
-
 public class User {
     private Long id;
     private String name;

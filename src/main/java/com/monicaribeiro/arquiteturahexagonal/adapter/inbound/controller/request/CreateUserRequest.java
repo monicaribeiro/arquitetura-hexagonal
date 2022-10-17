@@ -4,12 +4,13 @@ import com.monicaribeiro.arquiteturahexagonal.domain.domain.Movie;
 import com.monicaribeiro.arquiteturahexagonal.domain.domain.User;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class CreateUserRequest {
-    @NotBlank(message = "Nome é obrigatório")
+    @NotNull(message = "Name is mandatory.")
     private String name;
 
-    @NotBlank(message = "Nome do filme/série favorito é obrigatório")
+    @NotBlank(message = "Favorite movie name is mandatory.")
     private String favoriteMovieTitle;
 
     public User toUserDomain() {

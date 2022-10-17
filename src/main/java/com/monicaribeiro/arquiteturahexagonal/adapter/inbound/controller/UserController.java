@@ -7,7 +7,7 @@ import com.monicaribeiro.arquiteturahexagonal.domain.ports.inbound.GetUserByIdUs
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.NoSuchElementException;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest createUserRequest) {
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody CreateUserRequest createUserRequest) {
         return ResponseEntity.ok(UserResponse.fromDomain(createUserUseCase.execute(createUserRequest.toUserDomain())));
     }
 }
